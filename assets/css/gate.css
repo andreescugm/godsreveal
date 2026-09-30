@@ -1,0 +1,97 @@
+/* Portada: el umbral entre los dos mundos */
+
+.gate { background: var(--ink); color: var(--bone); min-height: 100dvh; overflow: hidden; }
+
+.gate__doors {
+  display: flex;
+  min-height: 100dvh;
+}
+
+.door {
+  position: relative; isolation: isolate; overflow: hidden;
+  flex: 1 1 50%;
+  display: flex; align-items: flex-end;
+  padding: clamp(28px, 5vw, 72px);
+  transition: flex-grow 1.1s var(--ease);
+}
+.door--lamb {
+  background:
+    radial-gradient(120% 80% at 30% 10%, #ffffff 0%, transparent 60%),
+    linear-gradient(180deg, #e4e9ef 0%, var(--bone) 55%, var(--paper) 100%);
+  color: var(--ink);
+}
+.door--sword {
+  background:
+    radial-gradient(90% 60% at 70% 100%, #26262c 0%, transparent 70%),
+    linear-gradient(180deg, #121215 0%, var(--ink) 100%);
+  color: var(--bone);
+}
+.door__inner {
+  position: relative; z-index: var(--z-content);
+  display: flex; flex-direction: column; gap: 14px;
+}
+.door--sword .door__inner { margin-left: auto; text-align: right; align-items: flex-end; }
+
+.door__name {
+  font-family: var(--font-mark); font-weight: 800;
+  font-size: clamp(52px, 7.5vw, 128px); line-height: 0.9;
+}
+.door--lamb .door__name { --holo-base: #c9c7c0; }
+.door__line { font-size: 15px; letter-spacing: 0.02em; opacity: 0.72; }
+.door .code { opacity: 0.55; }
+
+@media (hover: hover) and (min-width: 768px) {
+  .gate__doors:has(.door--lamb:hover) .door--lamb,
+  .gate__doors:has(.door--sword:hover) .door--sword { flex-grow: 1.55; }
+}
+
+/* the wordmark sits on the seam and inverts across both worlds */
+.gate__mark {
+  position: fixed; left: 50%; top: 50%; z-index: var(--z-nav);
+  transform: translate(-50%, -58%);
+  margin: 0;
+  font-family: var(--font-mark); font-weight: 900;
+  font-size: clamp(64px, 12vw, 210px); line-height: 0.82; text-align: center;
+  color: #f0efeb;
+  mix-blend-mode: difference;
+  pointer-events: none;
+  white-space: nowrap;
+}
+
+.gate__foot {
+  position: fixed; left: 50%; bottom: 22px; z-index: var(--z-nav);
+  transform: translateX(-50%);
+  margin: 0; font-size: 13px; letter-spacing: 0.04em;
+  color: #f0efeb; mix-blend-mode: difference; white-space: nowrap;
+  pointer-events: none;
+}
+
+/* ---------- el velo: film holografico transparente que se levanta ---------- */
+.veil {
+  position: fixed; inset: 0; z-index: var(--z-veil);
+  background: rgb(240 239 235 / 0.55);
+  -webkit-backdrop-filter: blur(22px) saturate(140%);
+  backdrop-filter: blur(22px) saturate(140%);
+  transition: transform 1.6s var(--ease), opacity 1.6s var(--ease);
+  pointer-events: none;
+}
+.veil__sheen {
+  position: absolute; inset: 0;
+  background: linear-gradient(115deg,
+    transparent 30%, rgb(150 170 255 / 0.35) 42%, rgb(140 225 200 / 0.35) 48%,
+    rgb(245 215 150 / 0.35) 54%, rgb(240 170 210 / 0.35) 60%, transparent 72%);
+  background-size: 250% 100%;
+  animation: sheen 2.2s var(--ease) forwards;
+}
+.veil.is-lifted { transform: translateY(-104%); opacity: 0.4; }
+@keyframes sheen { from { background-position: 120% 0; } to { background-position: -20% 0; } }
+
+@media (max-width: 767px) {
+  .gate__doors { flex-direction: column; }
+  .door { min-height: 50dvh; align-items: flex-end; padding: 24px 16px 28px; }
+  .door--lamb { align-items: flex-start; padding-top: 88px; }
+  .door--sword { align-items: flex-end; padding-bottom: 64px; }
+  .door__name { font-size: clamp(44px, 13vw, 72px); }
+  .gate__mark { font-size: clamp(56px, 19vw, 110px); transform: translate(-50%, -50%); }
+  .gate__foot { font-size: 12px; bottom: 18px; }
+}

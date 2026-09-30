@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>El Cordero | GOD'S REVEAL</title>
+  <meta name="description" content="El Cordero. La línea blanca de GOD'S REVEAL: paz, luz y rebaño. Acabados en film holográfico transparente.">
+  <meta name="theme-color" content="#efeeea">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&family=Grenze+Gotisch:wght@600..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/lamb.css">
+</head>
+<body class="lamb grain">
+
+  <header class="nav">
+    <div class="wrap">
+      <a class="nav__brand" href="index.html">GOD'S REVEAL</a>
+      <nav class="nav__links" aria-label="Mundos">
+        <a href="cordero.html" aria-current="page">Cordero</a>
+        <a href="espada.html">Espada</a>
+        <a class="hide-sm" href="#rebano">Lista</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="l-hero">
+      <canvas class="atmos" data-atmos="cloud" aria-hidden="true"></canvas>
+      <div class="wrap l-hero__grid">
+        <div class="l-hero__copy">
+          <span class="code rv">JN 1:29</span>
+          <h1 class="l-hero__title mark holo rv" data-d="1" data-light data-text="El Cordero">El Cordero</h1>
+          <p class="l-hero__sub rv" data-d="2">La línea blanca. Prendas casi vacías que solo se revelan cuando la luz las toca.</p>
+          <div class="rv" data-d="3">
+            <a class="btn btn--solid" href="#coleccion">Ver colección</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- MANIFIESTO -->
+    <section class="l-manifesto">
+      <div class="wrap">
+        <p class="l-manifesto__text rv">No es que todo vaya bien.<br>Es que ya no estás solo.</p>
+      </div>
+    </section>
+
+    <!-- COLECCION -->
+    <section class="l-coll" id="coleccion" aria-labelledby="coll-title">
+      <div class="wrap">
+        <h2 class="l-coll__title rv" id="coll-title">Primera colección</h2>
+        <div class="l-coll__grid">
+          <!-- TODO: foto real de producto 1600x2000 -->
+          <article class="piece piece--xl rv">
+            <div class="piece__media l-swatch"><span class="piece__print holo" data-light data-text="Agnus">Agnus</span></div>
+            <div class="piece__meta"><span class="piece__name">Hoodie Agnus, hueso</span><span class="piece__status">Próximamente</span></div>
+          </article>
+          <!-- TODO: foto real de producto 1200x1500 -->
+          <article class="piece rv" data-d="1">
+            <div class="piece__media l-swatch l-swatch--sky"><span class="piece__print holo" data-light data-text="PS 23:2">PS 23:2</span></div>
+            <div class="piece__meta"><span class="piece__name">Tee Aguas Tranquilas</span><span class="piece__status">Próximamente</span></div>
+          </article>
+          <!-- TODO: foto real de producto 1200x1500 -->
+          <article class="piece rv" data-d="2">
+            <div class="piece__media l-swatch"><span class="piece__print piece__print--sm holo" data-light data-text="✦">✦</span></div>
+            <div class="piece__meta"><span class="piece__name">Crewneck Halo</span><span class="piece__status">Próximamente</span></div>
+          </article>
+          <!-- TODO: foto real de producto 1600x1000 -->
+          <article class="piece piece--wide rv">
+            <div class="piece__media l-swatch l-swatch--cream"><span class="piece__print holo" data-light data-text="LK 15:4">LK 15:4</span></div>
+            <div class="piece__meta"><span class="piece__name">Zip Noventa y Nueve</span><span class="piece__status">Próximamente</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- MATERIAL -->
+    <section class="l-material" aria-labelledby="mat-title">
+      <div class="wrap l-material__grid">
+        <div class="l-material__copy">
+          <h2 class="l-material__title rv" id="mat-title">No está impreso. Está en la luz.</h2>
+          <p class="rv" data-d="1">Film holográfico transparente sobre algodón pesado. De frente casi no se ve. Gíralo y aparece.</p>
+          <p class="l-material__hint rv" data-d="2">Pasa el cursor por el panel. En el móvil, inclínalo.</p>
+        </div>
+        <div class="reveal-panel rv" data-d="1" aria-label="Panel interactivo: una cita escondida que aparece con la luz">
+          <span class="reveal-panel__lit holo" data-light aria-hidden="true" data-text="1 CO&#10;13:12">1 CO<br>13:12</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- REBAÑO -->
+    <section class="l-flock" id="rebano" aria-labelledby="flock-title">
+      <div class="wrap l-flock__inner">
+        <span class="code rv">LK 15:4</span>
+        <h2 class="l-flock__title rv" data-d="1" id="flock-title">Puedes estar perdido.<br>No estás solo.</h2>
+        <form class="l-flock__form rv" data-d="2" data-list data-ok="Estás dentro. Te avisaremos antes que a nadie." novalidate>
+          <div class="field">
+            <label for="email-lamb">Entra en el rebaño</label>
+            <div class="field__row">
+              <input id="email-lamb" type="email" name="email" autocomplete="email" placeholder="tu@email.com" required aria-describedby="help-lamb">
+              <button class="btn btn--solid" type="submit">Unirme</button>
+            </div>
+            <p class="field__help" id="help-lamb" aria-live="polite">Aviso del primer drop. Nada más.</p>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap">
+      <span class="mark foot__mark">GOD'S REVEAL</span>
+      <a class="foot__cross" href="espada.html">Cruzar a La Espada <span aria-hidden="true">→</span></a>
+    </div>
+  </footer>
+
+  <script src="assets/js/site.js" defer></script>
+</body>
+</html>

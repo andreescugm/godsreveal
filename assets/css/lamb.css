@@ -1,0 +1,116 @@
+/* EL CORDERO - la linea blanca */
+
+.lamb {
+  --bg: var(--bone);
+  --fg: #16161a;
+  --muted: #55555c;
+  --holo-base: #c9c7c0;
+  --grain: 0.06;
+  background: var(--bg);
+  color: var(--fg);
+}
+.lamb .nav { color: var(--fg); background: linear-gradient(var(--bg), rgb(239 238 234 / 0)); }
+.btn--solid { background: var(--fg); color: var(--bone); }
+.btn--solid:hover { opacity: 0.86; }
+
+/* ---------- hero ---------- */
+.l-hero {
+  position: relative; isolation: isolate; overflow: hidden;
+  min-height: 100dvh;
+  display: flex; align-items: flex-end;
+  padding: 96px 0 clamp(48px, 9vh, 96px);
+  background:
+    radial-gradient(90% 70% at 75% 20%, #ffffff 0%, transparent 60%),
+    linear-gradient(180deg, #dfe6ee 0%, #e9ecee 45%, var(--bg) 100%);
+}
+.l-hero__grid { position: relative; z-index: var(--z-content); }
+.l-hero__copy { display: flex; flex-direction: column; gap: 22px; max-width: 900px; }
+.l-hero__copy .code { color: var(--muted); }
+.l-hero__title {
+  margin: 0;
+  font-size: clamp(76px, 14vw, 220px);
+  line-height: 0.86;
+  padding-bottom: 0.06em;
+}
+.l-hero__sub { margin: 0; font-size: clamp(17px, 1.5vw, 20px); color: var(--muted); max-width: 34ch; }
+
+/* ---------- manifesto ---------- */
+.l-manifesto { padding: clamp(120px, 18vw, 220px) 0; }
+.l-manifesto__text {
+  margin: 0 auto; text-align: center;
+  font-size: clamp(32px, 4.6vw, 68px); font-weight: 300; line-height: 1.12; letter-spacing: -0.02em;
+  max-width: 18ch;
+}
+
+/* ---------- collection ---------- */
+.l-coll { padding-bottom: clamp(96px, 14vw, 180px); }
+.l-coll__title { margin: 0 0 40px; font-size: clamp(26px, 2.6vw, 36px); font-weight: 400; letter-spacing: -0.01em; }
+.l-coll__grid {
+  display: grid; gap: 40px 24px;
+  grid-template-columns: 1.35fr 1fr 1fr;
+  grid-template-areas:
+    "xl a b"
+    "xl w w";
+}
+.piece--xl { grid-area: xl; }
+.piece--wide { grid-area: w; }
+.piece--wide .piece__media { aspect-ratio: 16 / 9; }
+.l-coll__grid > .piece:nth-child(2) { grid-area: a; }
+.l-coll__grid > .piece:nth-child(3) { grid-area: b; }
+.piece--xl .piece__media { aspect-ratio: auto; height: 100%; min-height: 520px; }
+
+.l-swatch { background: linear-gradient(160deg, #fbfbf9 0%, #ecebe6 100%); box-shadow: inset 0 0 0 1px rgb(20 20 30 / 0.05); }
+.l-swatch--sky { background: linear-gradient(160deg, #f4f7fa 0%, #dde4ec 100%); }
+.l-swatch--cream { background: linear-gradient(160deg, #faf9f5 0%, #e9e6dd 100%); }
+.piece__print--sm { font-family: var(--font-sans); font-weight: 300; font-size: clamp(56px, 7vw, 110px); }
+
+/* ---------- material ---------- */
+.l-material { padding: clamp(96px, 12vw, 160px) 0; background: var(--paper); }
+.l-material__grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: clamp(40px, 6vw, 96px); align-items: center; }
+.l-material__copy { display: flex; flex-direction: column; gap: 18px; max-width: 44ch; }
+.l-material__copy p { margin: 0; color: var(--muted); font-size: 17px; }
+.l-material__title { margin: 0; font-size: clamp(34px, 4vw, 56px); font-weight: 400; line-height: 1.05; letter-spacing: -0.02em; }
+.l-material__hint { font-family: var(--font-mono); font-size: 12px !important; letter-spacing: 0.08em; }
+
+.reveal-panel {
+  position: relative; aspect-ratio: 1 / 1; overflow: hidden;
+  display: grid; place-items: center;
+  background: linear-gradient(150deg, #fdfdfc 0%, #eeede9 100%);
+  box-shadow: inset 0 0 0 1px rgb(20 20 30 / 0.06), 0 30px 80px -40px rgb(80 90 110 / 0.35);
+  font-family: var(--font-mark); font-weight: 900;
+  font-size: clamp(72px, 11vw, 180px); line-height: 0.85; text-align: center;
+}
+/* aqui el film es de verdad casi invisible: solo la luz lo delata */
+.reveal-panel__lit { --holo-base: #eceae5; }
+.reveal-panel__lit::after {
+  -webkit-mask-image: radial-gradient(circle at var(--mx) var(--my), #000 0%, rgb(0 0 0 / 0.6) 22%, transparent 48%) !important;
+  mask-image: radial-gradient(circle at var(--mx) var(--my), #000 0%, rgb(0 0 0 / 0.6) 22%, transparent 48%) !important;
+}
+
+/* ---------- flock ---------- */
+.l-flock {
+  padding: clamp(110px, 15vw, 200px) 0;
+  background: linear-gradient(180deg, var(--bg) 0%, #e3e8ee 100%);
+}
+.l-flock__inner { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 24px; }
+.l-flock__inner .code { color: var(--muted); }
+.l-flock__title { margin: 0; font-size: clamp(38px, 5.4vw, 80px); font-weight: 300; line-height: 1.04; letter-spacing: -0.025em; }
+.l-flock__form { width: min(100%, 520px); margin-top: 12px; text-align: left; }
+.l-flock__form .field__help { color: var(--muted); }
+.l-flock__form input { background: rgb(255 255 255 / 0.5); }
+
+/* ---------- footer ---------- */
+.lamb .foot { background: #e3e8ee; color: var(--fg); }
+.foot__mark { font-size: 28px; }
+.foot__cross { font-size: 14px; border-bottom: 1px solid currentColor; padding-bottom: 2px; }
+
+@media (max-width: 1023px) {
+  .l-coll__grid { grid-template-columns: 1fr 1fr; grid-template-areas: "xl xl" "a b" "w w"; }
+  .piece--xl .piece__media { min-height: 0; aspect-ratio: 4 / 5; height: auto; }
+}
+@media (max-width: 767px) {
+  .l-hero { padding-bottom: 56px; }
+  .l-coll__grid { grid-template-columns: 1fr; grid-template-areas: "xl" "a" "b" "w"; gap: 36px; }
+  .piece--wide .piece__media { aspect-ratio: 4 / 5; }
+  .l-material__grid { grid-template-columns: 1fr; }
+}

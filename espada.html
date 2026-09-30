@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>La Espada | GOD'S REVEAL</title>
+  <meta name="description" content="La Espada. La línea oscura de GOD'S REVEAL: prueba, fuego y propósito. Cromo, humo y cadenas.">
+  <meta name="theme-color" content="#0d0d0f">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&family=Geist+Mono:wght@400;500&family=Grenze+Gotisch:wght@600..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/sword.css">
+</head>
+<body class="sword grain">
+
+  <header class="nav">
+    <div class="wrap">
+      <a class="nav__brand" href="index.html">GOD'S REVEAL</a>
+      <nav class="nav__links" aria-label="Mundos">
+        <a href="cordero.html">Cordero</a>
+        <a href="espada.html" aria-current="page">Espada</a>
+        <a class="hide-sm" href="#aviso">Lista</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="s-hero">
+      <canvas class="atmos" data-atmos="smoke" aria-hidden="true"></canvas>
+      <div class="s-hero__beam" aria-hidden="true"></div>
+      <div class="wrap s-hero__inner">
+        <span class="code rv">MT 10:34</span>
+        <h1 class="s-hero__title mark holo--chrome rv" data-d="1" data-light>La Espada</h1>
+        <div class="s-hero__row rv" data-d="2">
+          <p class="s-hero__sub">La línea oscura. Para el que está en plena batalla y sigue en pie.</p>
+          <a class="btn btn--bone" href="#piezas">Ver piezas</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- LA PRUEBA -->
+    <section class="s-trial" aria-labelledby="trial-title">
+      <div class="wrap">
+        <h2 class="sr-only" id="trial-title">La prueba</h2>
+        <ol class="s-trial__list">
+          <li class="rv"><p>No estoy perdiendo.<br>Me están preparando.</p><span class="code">IS 48:10</span></li>
+          <li class="rv"><p>Las batallas más duras<br>son para los mejores.</p><span class="code">ROM 5:3</span></li>
+          <li class="rv"><p>El mundo arde.<br>Yo sigo en paz.</p><span class="code">JN 16:33</span></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- PIEZAS -->
+    <section class="s-pieces" id="piezas" aria-labelledby="pieces-title">
+      <div class="wrap">
+        <h2 class="s-pieces__title rv" id="pieces-title">Piezas</h2>
+      </div>
+      <div class="s-rail" tabindex="0" aria-label="Piezas de La Espada, desliza en horizontal">
+        <!-- TODO: fotos reales de producto 1200x1500 -->
+        <article class="piece rv">
+          <div class="piece__media s-swatch"><span class="piece__print holo--chrome" data-light>Crisol</span></div>
+          <div class="piece__meta"><span class="piece__name">Hoodie Crisol, tinta</span><span class="piece__status">Próximamente</span></div>
+        </article>
+        <article class="piece rv" data-d="1">
+          <div class="piece__media s-swatch s-swatch--smoke"><span class="piece__print holo--chrome" data-light>EPH 6:11</span></div>
+          <div class="piece__meta"><span class="piece__name">Tee Armadura</span><span class="piece__status">Próximamente</span></div>
+        </article>
+        <article class="piece rv" data-d="2">
+          <div class="piece__media s-swatch"><span class="piece__print piece__print--glyph holo--chrome" data-light>✦</span></div>
+          <div class="piece__meta"><span class="piece__name">Cadena Estrella, plata</span><span class="piece__status">Próximamente</span></div>
+        </article>
+        <article class="piece rv" data-d="3">
+          <div class="piece__media s-swatch s-swatch--smoke"><span class="piece__print holo--chrome" data-light>IS 40:31</span></div>
+          <div class="piece__meta"><span class="piece__name">Zip Alas</span><span class="piece__status">Próximamente</span></div>
+        </article>
+      </div>
+    </section>
+
+    <!-- 1/1 -->
+    <section class="s-one" aria-labelledby="one-title">
+      <div class="wrap s-one__grid">
+        <div class="s-one__mark rv" aria-hidden="true"><span class="holo--chrome" data-light>1/1</span></div>
+        <div class="s-one__copy">
+          <h2 class="s-one__title rv" id="one-title">Piezas únicas.</h2>
+          <p class="rv" data-d="1">Hechas a mano, una sola vez. No se anuncian aquí. Llegan primero a quien está en la lista.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- AVISO -->
+    <section class="s-call" id="aviso" aria-labelledby="call-title">
+      <div class="wrap s-call__inner">
+        <h2 class="s-call__title rv" id="call-title">Mantente en pie.</h2>
+        <form class="s-call__form rv" data-d="1" data-list data-ok="Dentro. Serás de los primeros en saberlo." novalidate>
+          <div class="field">
+            <label for="email-sword">Aviso del primer drop</label>
+            <div class="field__row">
+              <input id="email-sword" type="email" name="email" autocomplete="email" placeholder="tu@email.com" required aria-describedby="help-sword">
+              <button class="btn btn--bone" type="submit">Unirme</button>
+            </div>
+            <p class="field__help" id="help-sword" aria-live="polite">Sin spam. Solo el drop y las piezas 1/1.</p>
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="wrap">
+      <span class="mark foot__mark holo--chrome" data-light>GOD'S REVEAL</span>
+      <a class="foot__cross" href="cordero.html">Cruzar a El Cordero <span aria-hidden="true">→</span></a>
+    </div>
+  </footer>
+
+  <script src="assets/js/site.js" defer></script>
+</body>
+</html>
