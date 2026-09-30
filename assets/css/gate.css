@@ -1,72 +1,97 @@
-/* Portada: el umbral entre los dos mundos */
+/* Portada: el poster hecho web. Arriba la prueba, en medio el velo, abajo la paz. */
 
-.gate { background: var(--ink); color: var(--bone); min-height: 100dvh; overflow: hidden; }
+.gate { background: var(--ink); color: var(--bone); min-height: 100dvh; overflow-x: hidden; }
 
 .gate__doors {
-  display: flex;
+  position: relative;
+  display: grid;
+  grid-template-rows: 1fr 1fr;
   min-height: 100dvh;
 }
 
 .door {
   position: relative; isolation: isolate; overflow: hidden;
-  flex: 1 1 50%;
-  display: flex; align-items: flex-end;
-  padding: clamp(28px, 5vw, 72px);
+  display: flex;
+  padding: clamp(24px, 4vw, 64px);
   transition: flex-grow 1.1s var(--ease);
 }
-.door--lamb {
-  background:
-    radial-gradient(120% 80% at 30% 10%, #ffffff 0%, transparent 60%),
-    linear-gradient(180deg, #e4e9ef 0%, var(--bone) 55%, var(--paper) 100%);
-  color: var(--ink);
+.door__media {
+  position: absolute; inset: 0; z-index: -1;
+  background-size: cover;
+  transform: scale(1.04);
+  transition: transform 2.4s var(--ease), filter 1.2s var(--ease);
 }
-.door--sword {
-  background:
-    radial-gradient(90% 60% at 70% 100%, #26262c 0%, transparent 70%),
-    linear-gradient(180deg, #121215 0%, var(--ink) 100%);
-  color: var(--bone);
-}
-.door__inner {
-  position: relative; z-index: var(--z-content);
-  display: flex; flex-direction: column; gap: 14px;
-}
-.door--sword .door__inner { margin-left: auto; text-align: right; align-items: flex-end; }
+.door:hover .door__media { transform: scale(1); }
 
-.door__name {
-  font-family: var(--font-mark); font-weight: 800;
-  font-size: clamp(52px, 7.5vw, 128px); line-height: 0.9;
+.door--sword { align-items: flex-start; color: var(--bone); }
+.door--sword .door__media {
+  background-image:
+    linear-gradient(180deg, rgb(10 10 12 / 0.55) 0%, rgb(10 10 12 / 0.1) 45%, rgb(10 10 12 / 0.35) 100%),
+    url("../img/angel.jpg");
+  background-position: center 30%;
+  filter: saturate(0.85);
 }
+.door--lamb { align-items: flex-end; justify-content: flex-end; color: var(--ink); }
+.door--lamb .door__media {
+  background-image:
+    linear-gradient(0deg, rgb(244 243 238 / 0.55) 0%, rgb(244 243 238 / 0) 40%),
+    url("../img/sky.jpg");
+  background-position: center 42%;
+}
+.door--lamb .door__inner { text-align: right; align-items: flex-end; }
+
+.door__inner { position: relative; z-index: var(--z-content); display: flex; flex-direction: column; gap: 10px; }
+.door__name { font-family: var(--font-mark); font-weight: 800; font-size: clamp(46px, 6vw, 104px); line-height: 0.9; }
 .door--lamb .door__name { --holo-base: #c9c7c0; }
-.door__line { font-size: 15px; letter-spacing: 0.02em; opacity: 0.72; }
-.door .code { opacity: 0.55; }
+.door__line { display: flex; gap: 14px; align-items: baseline; font-size: 14px; letter-spacing: 0.02em; }
+.door--lamb .door__line { justify-content: flex-end; }
+.door__line .code { opacity: 0.6; }
 
-@media (hover: hover) and (min-width: 768px) {
-  .gate__doors:has(.door--lamb:hover) .door--lamb,
-  .gate__doors:has(.door--sword:hover) .door--sword { flex-grow: 1.55; }
-}
-
-/* the wordmark sits on the seam and inverts across both worlds */
-.gate__mark {
-  position: fixed; left: 50%; top: 50%; z-index: var(--z-nav);
-  transform: translate(-50%, -58%);
-  margin: 0;
-  font-family: var(--font-mark); font-weight: 900;
-  font-size: clamp(64px, 12vw, 210px); line-height: 0.82; text-align: center;
-  color: #f0efeb;
-  mix-blend-mode: difference;
+/* ---------- el velo en la costura ---------- */
+.seam {
+  position: absolute; left: 0; right: 0; top: 50%; z-index: 2;
+  height: clamp(220px, 44vh, 420px);
+  transform: translateY(-50%);
   pointer-events: none;
+}
+.seam__veil {
+  position: absolute; inset: 0;
+  background: url("../img/veil.jpg") center 70% / cover no-repeat;
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 38%, #000 62%, transparent 100%);
+  mask-image: linear-gradient(180deg, transparent 0%, #000 38%, #000 62%, transparent 100%);
+}
+.seam__halo { left: 50%; top: 26%; width: clamp(120px, 14vw, 220px); }
+.seam__glint { left: 53.5%; top: 18%; }
+
+.gate__mark {
+  position: absolute; left: 50%; top: 50%; z-index: var(--z-nav);
+  transform: translate(-50%, -50%);
+  margin: 0;
+  display: flex; align-items: center; gap: clamp(12px, 2vw, 28px);
+  font-family: var(--font-mark); font-weight: 900;
+  font-size: clamp(54px, 9vw, 150px); line-height: 1;
   white-space: nowrap;
+  pointer-events: none;
+}
+.gate__mark .holo--chrome {
+  /* cromo oscuro como el del poster: bordes de tinta, reflejo blanco, canto iridiscente */
+  background:
+    radial-gradient(circle at var(--mx) var(--my), rgb(255 255 255 / 0.9), transparent 14%),
+    conic-gradient(from var(--spin) at var(--mx) var(--my),
+      rgb(150 170 255 / 0.35), rgb(140 225 200 / 0.35), rgb(245 215 150 / 0.35), rgb(240 170 210 / 0.35), rgb(150 170 255 / 0.35)),
+    linear-gradient(180deg, #3a3a42 0%, #9d9da8 30%, #f4f4f7 48%, #2c2c33 58%, #8e8e99 80%, #d9d9e0 100%);
+  -webkit-background-clip: text; background-clip: text;
+  filter: drop-shadow(0 1px 0 rgb(255 255 255 / 0.6)) drop-shadow(0 0 2px rgb(15 15 20 / 0.55)) drop-shadow(0 10px 28px rgb(15 15 20 / 0.45));
 }
 
 .gate__foot {
-  position: fixed; left: 50%; bottom: 22px; z-index: var(--z-nav);
+  position: absolute; left: 50%; bottom: 20px; z-index: var(--z-nav);
   transform: translateX(-50%);
-  margin: 0; font-size: 13px; letter-spacing: 0.04em;
-  color: #f0efeb; mix-blend-mode: difference; white-space: nowrap;
-  pointer-events: none;
+  margin: 0; font-size: 12px; letter-spacing: 0.06em; color: var(--ink); opacity: 0.7;
+  white-space: nowrap; pointer-events: none;
 }
 
-/* ---------- el velo: film holografico transparente que se levanta ---------- */
+/* ---------- el velo de entrada ---------- */
 .veil {
   position: fixed; inset: 0; z-index: var(--z-veil);
   background: rgb(240 239 235 / 0.55);
@@ -87,11 +112,12 @@
 @keyframes sheen { from { background-position: 120% 0; } to { background-position: -20% 0; } }
 
 @media (max-width: 767px) {
-  .gate__doors { flex-direction: column; }
-  .door { min-height: 50dvh; align-items: flex-end; padding: 24px 16px 28px; }
-  .door--lamb { align-items: flex-start; padding-top: 88px; }
-  .door--sword { align-items: flex-end; padding-bottom: 64px; }
-  .door__name { font-size: clamp(44px, 13vw, 72px); }
-  .gate__mark { font-size: clamp(56px, 19vw, 110px); transform: translate(-50%, -50%); }
-  .gate__foot { font-size: 12px; bottom: 18px; }
+  .door { padding: 76px 16px 28px; }
+  .door--lamb { padding: 28px 16px 56px; }
+  .door__name { font-size: clamp(40px, 12vw, 64px); }
+  .door__line { font-size: 13px; }
+  .gate__mark { font-size: clamp(40px, 12.5vw, 72px); }
+  .gate__mark .glint { display: none; }
+  .seam { height: 150px; }
+  .door--lamb .door__media { background-image: linear-gradient(0deg, rgb(244 243 238 / 0.85) 0%, rgb(244 243 238 / 0) 45%), url("../img/sky.jpg"); }
 }

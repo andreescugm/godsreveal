@@ -114,3 +114,33 @@
   .piece--wide .piece__media { aspect-ratio: 4 / 5; }
   .l-material__grid { grid-template-columns: 1fr; }
 }
+
+/* ---------- poster aesthetic: sky, halos, glints ---------- */
+.l-hero { background: #dfe7ef; }
+.l-hero__media {
+  position: absolute; inset: 0 0 0 36%; z-index: var(--z-atmos);
+  background:
+    linear-gradient(0deg, var(--bg) 0%, rgb(239 238 234 / 0) 22%),
+    url("../img/sky.jpg") 50% 40% / cover no-repeat;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 30%);
+  mask-image: linear-gradient(90deg, transparent 0%, #000 30%);
+}
+@media (max-width: 767px) {
+  .l-hero__media { inset: 0; -webkit-mask-image: linear-gradient(0deg, transparent 20%, #000 60%); mask-image: linear-gradient(0deg, transparent 20%, #000 60%); }
+}
+.l-hero .atmos { opacity: 0.55; }
+.l-hero .glint { z-index: var(--z-content); }
+
+.piece__halo { left: 50%; top: 20%; width: 34%; opacity: 0.7; box-shadow: inset 0 0 0 1.2px rgb(170 175 190 / 0.6), 0 0 10px rgb(255 255 255 / 0.9); }
+.piece__glint { right: 10%; top: 12%; --s: 26px; filter: drop-shadow(0 0 4px rgb(180 190 210 / 0.9)); }
+.l-swatch { background: linear-gradient(170deg, #eef3f8 0%, #f6f5f1 55%, #ecebe6 100%); }
+.l-swatch--sky { background: linear-gradient(170deg, #dbe5ef 0%, #eef2f5 60%, #f4f3ef 100%); }
+
+.l-flock { position: relative; isolation: isolate; overflow: hidden; }
+.l-flock__media {
+  position: absolute; inset: 0; z-index: -1;
+  background:
+    linear-gradient(180deg, var(--bg) 0%, rgb(239 238 234 / 0.35) 35%, rgb(239 238 234 / 0.55) 100%),
+    url("../img/clouds.jpg") center 60% / cover no-repeat;
+}
+.lamb .foot { background: #eef0f0; }

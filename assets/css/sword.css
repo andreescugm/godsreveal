@@ -96,3 +96,16 @@
   .s-rail { grid-auto-columns: 78vw; }
   .s-one__grid, .s-call__inner { grid-template-columns: 1fr; }
 }
+
+/* ---------- poster aesthetic: the angel in shadow ---------- */
+.s-hero__media {
+  position: absolute; inset: 0; z-index: var(--z-atmos);
+  background:
+    linear-gradient(0deg, var(--bg) 0%, rgb(13 13 15 / 0.35) 45%, rgb(13 13 15 / 0.25) 100%),
+    linear-gradient(90deg, rgb(13 13 15 / 0.7) 0%, rgb(13 13 15 / 0) 55%),
+    url("../img/angel.jpg") 65% 30% / cover no-repeat;
+  filter: saturate(0.8) contrast(1.05);
+}
+.s-hero .atmos { opacity: 0.8; }
+.s-hero .glint { z-index: var(--z-content); }
+.piece__glint { right: 10%; top: 12%; --s: 24px; }
